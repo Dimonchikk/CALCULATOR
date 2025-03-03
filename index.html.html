@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вартості</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { margin: 10px; padding: 10px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h2>Калькулятор вартості</h2>
+    <label for="price">Введіть ціну ($):</label>
+    <input type="number" id="price" placeholder="Ціна" min="0">
+    <button onclick="calculateCost()">Розрахувати</button>
+    <h3>Результат: <span id="result">0</span> $</h3>
+
+    <script>
+        function calculateCost() {
+            let price = parseFloat(document.getElementById('price').value);
+            if (isNaN(price) || price < 0) {
+                alert('Введіть коректну ціну');
+                return;
+            }
+            let cost = (price * 1.03) * 0.14;
+            document.getElementById('result').innerText = cost.toFixed(2);
+        }
+    </script>
+</body>
+</html>
